@@ -105,6 +105,7 @@ pass 사용 8
 
 - 리스트[-2] : 뒤에서 두번째 요소 반환
 - 리스트[3][0] : 4번째 요소의 0번째 요소
+- 리스트[n:\m:step] : n부터 m부터 step만큼씩 띄우면서
 
 
 
@@ -256,10 +257,13 @@ pass 사용 8
 - chr() : 아스키 코드값을 문자로
 - ord() : 문자를 아스키 코드로 예) a를 입력하면 a가 ascii로 뭔지
 - divmod(a,b) -> (몫,나머지)
-- enumerate(시퀀스) : (인덱스,함수후결과) 이렇게 반환
+- enumerate(시퀀스,start=) : (인덱스,문자/요소)이렇게 반환. start=n은 n부터 시퀀스가 시작
+  - 예) enumerate([1,2,3],start=1) => (1,1), (2,2)
   - --> 시퀀스 : 리스트, 튜플, __문자열__까지
 - eval() : 문자열로 되어있는 계산식을 연산 결과 정수로
 - filter(function,iterable): filter객체로 출력
+  - filter(lambda식, iterable)
+
 - range(start,stop,step): 지정한 범위의 값을 반복 가능한 객체로 반환하는데 __반복 가능한 객체__설정 필요
 - zip(iterable,iterable) : zip객체로 반환; 동일한 인덱스 묶기
 - lambda는 인수가 하나일 때는 (식)(인수) 이렇게 작성!
@@ -383,22 +387,19 @@ class B(A):
 ```
 
 - class명.mro() : method resolution order -> 메서도 호출순서 확인 가능
-
 - 정적 메서드: 인스턴스를 통하지 않고 바로 클래스에서 사용
   - 메서드 위에 일회로만 @statimethod 작성하고 self 삭제. 그냥 이 함수만 순수하게 사용할 때 사용
-  
 - 클래스 메서드:
   - 정적 메서드와 유사하지만, 첫번째 인자가 무조건 cls다
-  
 - 만약에 하위클래스에 `__init__`이 없다면 상위클래스의 `__init__` 수행
-
 - 데코레이터라고, @property 사용하면 숨겨진 변수 찾기 가능
-
-  
+- class변수를 쓰고 싶으면 함수 내에서 클래스명.변수 = ''' 하면댐
+- 메소드 재정의(오버라이딩)
 
 ## 기타:
 
 - Asterisk: 가변길이 매개변수. iterable한 자료를 unpacking
+- args는 for랑 같이 안쓰면 튜플 형태로 한번에 반환
 
 ```python
 def practice(*args):
@@ -415,9 +416,11 @@ practice(1,2,3,4,5)
 
 ```
 
-- kwargs : 딕셔너리 형태로 반환, driver code로 작성 
-  - drivercode : (first= 'python' ,second = 'is', third = 'shit')
+- kwargs : 딕셔너리 형태로 반환, 키워드인수. x=y에서 y는 필수가 아님
+  - args는 튜플, kwargs는 딕셔너리 형태로 
+  - 키워드인수 : (first= 'python' ,second = 'is', third = 'shit')
   - .items() 는 튜플 형태로 출력
+
 
 ```python
 def practice(**kwargs):

@@ -71,12 +71,16 @@ data-np.mean(data)
 
 > 편차를 제곱한 데이터를 다 더하고 그것의 평균
 
+- S^2 포현
+
 - 분산되어 있는 정도를 편차를 다 더해서 구하게  되면 0이 나와 파악하기 힘드니, 편차를 제곱해서 더한 후 그것을 N or N-1로 나눠준 것이다
 - 모분산은 N으로 나누고(시그마제곱), 표본 분산은 N-1로 나눈다.
 - ddof : 디폴트 = 0이고 표본 분산은 1로 변경한다
 - 표분산보다 모분산이 편차가 더 크다!
 
 :heavy_check_mark:pandas는 ddos default가 1 이고, np는 0이다
+
+- pandas는 불편분산, numpy는 표본분산이라 값이 다르다
 
 ```python
 #var(data,ddof=0)활용
@@ -88,7 +92,7 @@ np.var(x,ddof=1)
 # 모분산:
 np.var(x) #어짜피 ddof 0, 모분산이 default라
 np.array(x).var()
-pd.Series(x).var(ddof=0) # pdandas는 default가 1인다!!!!
+pd.Series(x).var(ddof=0) # pdandas는 default가 1이라서 0으로 설정해주면 표분분산 구해짐
 ```
 
 
@@ -104,6 +108,7 @@ x=[1,2,3,4,5]
 
 # 표본의 표준편차 (S):
 np.std(x)
+np.sqrt(np.var(x, ddof=0))
 
 # 모표준편차(sigma):
 np.std(x)
