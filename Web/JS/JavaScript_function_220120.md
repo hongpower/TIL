@@ -39,7 +39,7 @@
 
 - 실행문(body) 안: `<p onclick="func03()">즉시 실행 함수</p>`
 
-- ![즉시 실행 함수](C:/Users/jisuh/Desktop/데이터엔지니어링/Github/TIL/Web/JS/Images/image-20220120192418763.png)
+- ![](C:/Users/jisuh/Desktop/데이터엔지니어링/Github/TIL/Web/JS/Images/즉시 실행 함수.png)
 
   함수호출 : body에서 func03을 호출한다 => func03은 1) 뒤에 ()안 구문 실행한다 => 2) 뒤에 ()로 인해서 이름이없는(비밀함수)function을 호출한다 => 3) alert를 실행한다.
 
@@ -62,7 +62,7 @@ function func04(){
 
 - 실행문(body)안 : `<p onclick="func04()">함수리터럴</p>`
 
-![함수 리터럴](C:/Users/jisuh/Desktop/데이터엔지니어링/Github/TIL/Web/JS/Images/image-20220120194838760.png)
+![](C:/Users/jisuh/Desktop/데이터엔지니어링/Github/TIL/Web/JS/Images/함수 리터럴.png)
 
 - func04 함수를 호출 ->  'function(msg){alert(msg)}'라는 함수 정의문(비밀함수)를 인자(argument)로 한 literalPrn함수를 호출 -> literalPrn이 정의된 젤 윗 쪽에서 literal의 인자로 'function(msg){alert(msg)}' 을 받고, literalPrn실행 -> literalPrn구문은 실행하면 function(msg){alert(msg)}(literal과 동일)의 인자로 "안녕 나는 함수 형태의 값이야"가 들어간다.
 
