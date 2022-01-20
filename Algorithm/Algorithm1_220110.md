@@ -142,7 +142,7 @@ print(queue)
 - 0이 아닌 마지막 비트 찾는법: K & -K (여기서 &는 비트연산)
   -  만약 이 연산 수행했을 때 0이 나오면 0밖에 없다, 1이면 첫번째 자리, 2이면 둘째자리, 4이면 셋째자리, 8이면 넷째자리
 
-![BIT_2진법계산](Images/BIT_2진법계산.png)
+<img src="https://github.com/hongpower/TIL/blob/master/Images/BIT_2%EC%A7%84%EB%B2%95%EA%B3%84%EC%82%B0.png" />
 
 - 데이터 변경:
 
