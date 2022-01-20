@@ -117,7 +117,7 @@ print(queue)
 
 - 대표적인 트리 순회 방법들:
 
-  <img src="https://github.com/hongpower/TIL/blob/master/Images/%ED%8A%B8%EB%A6%AC%EC%88%9C%ED%9A%8C_%EB%B0%9C%EA%B7%B8%EB%A6%BC2.png;" />
+  <img src="https://github.com/hongpower/TIL/blob/master/Images/%ED%8A%B8%EB%A6%AC%EC%88%9C%ED%9A%8C_%EB%B0%9C%EA%B7%B8%EB%A6%BC2.png;" alt="트리의 순회" style="zoom:50%; />
 
 1. 전위 순회(pre-order traverse): 루트 먼저, 왼쪽, 오른쪽
 
@@ -142,7 +142,7 @@ print(queue)
 - 0이 아닌 마지막 비트 찾는법: K & -K (여기서 &는 비트연산)
   -  만약 이 연산 수행했을 때 0이 나오면 0밖에 없다, 1이면 첫번째 자리, 2이면 둘째자리, 4이면 셋째자리, 8이면 넷째자리
 
-<img src="https://github.com/hongpower/TIL/blob/master/Images/BIT_2%EC%A7%84%EB%B2%95%EA%B3%84%EC%82%B0.png" />
+<img src="https://github.com/hongpower/TIL/blob/master/Images/BIT_2%EC%A7%84%EB%B2%95%EA%B3%84%EC%82%B0.png" alt="비트" style="zoom:50%; />
 
 - 데이터 변경:
 
