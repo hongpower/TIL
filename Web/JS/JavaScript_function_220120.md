@@ -62,7 +62,7 @@ function func04(){
 
 - 실행문(body)안 : `<p onclick="func04()">함수리터럴</p>`
 
-![](./Images/함수 리터럴.png)
+<img src="https://github.com/hongpower/TIL/blob/master/Web/JS/Images/%ED%95%A8%EC%88%98%20%EB%A6%AC%ED%84%B0%EB%9F%B4.png" />
 
 - func04 함수를 호출 ->  'function(msg){alert(msg)}'라는 함수 정의문(비밀함수)를 인자(argument)로 한 literalPrn함수를 호출 -> literalPrn이 정의된 젤 윗 쪽에서 literal의 인자로 'function(msg){alert(msg)}' 을 받고, literalPrn실행 -> literalPrn구문은 실행하면 function(msg){alert(msg)}(literal과 동일)의 인자로 "안녕 나는 함수 형태의 값이야"가 들어간다.
 
