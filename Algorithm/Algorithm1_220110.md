@@ -102,7 +102,7 @@ print(queue)
 
 - 각 노드 내의 값의 크기 순서는 : 왼쪽 자식 노드 < 부모 노드 < 오른쪽 자식 노드
 
-  <img src="Images/이진탐색트리_발그림.png" alt="이진탐색트리" style="zoom:50%;" />
+  <img src="https://github.com/hongpower/TIL/blob/master/Images/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89%ED%8A%B8%EB%A6%AC_%EB%B0%9C%EA%B7%B8%EB%A6%BC.png" alt="이진탐색트리" style="zoom:50%;" />
 
 만약 내가 찾고자 하는 원소가 7이라면
 
@@ -117,7 +117,7 @@ print(queue)
 
 - 대표적인 트리 순회 방법들:
 
-  <img src="Images/트리순회_발그림2.png" alt="트리순회" style="zoom:50%;" />
+  <img src="https://github.com/hongpower/TIL/blob/master/Images/%ED%8A%B8%EB%A6%AC%EC%88%9C%ED%9A%8C_%EB%B0%9C%EA%B7%B8%EB%A6%BC2.png;" />
 
 1. 전위 순회(pre-order traverse): 루트 먼저, 왼쪽, 오른쪽
 
