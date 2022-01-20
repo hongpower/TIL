@@ -39,7 +39,7 @@
 
 - 실행문(body) 안: `<p onclick="func03()">즉시 실행 함수</p>`
 
-- ![](./Images/즉시 실행 함수.png)
+<img src="https://github.com/hongpower/TIL/blob/master/Web/JS/Images/%EC%A6%89%EC%8B%9C%20%EC%8B%A4%ED%96%89%20%ED%95%A8%EC%88%98.png"/>
 
   함수호출 : body에서 func03을 호출한다 => func03은 1) 뒤에 ()안 구문 실행한다 => 2) 뒤에 ()로 인해서 이름이없는(비밀함수)function을 호출한다 => 3) alert를 실행한다.
 
