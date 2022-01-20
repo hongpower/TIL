@@ -102,7 +102,7 @@ print(queue)
 
 - 각 노드 내의 값의 크기 순서는 : 왼쪽 자식 노드 < 부모 노드 < 오른쪽 자식 노드
 
-  <img src="Images/이진탐색트리_발그림.png" alt="이진탐색트리" style="zoom:50%;" />
+  <img src="https://github.com/hongpower/TIL/blob/master/Images/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89%ED%8A%B8%EB%A6%AC_%EB%B0%9C%EA%B7%B8%EB%A6%BC.png" alt="이진탐색트리" style="zoom:50%;" />
 
 만약 내가 찾고자 하는 원소가 7이라면
 
@@ -117,7 +117,7 @@ print(queue)
 
 - 대표적인 트리 순회 방법들:
 
-  <img src="Images/트리순회_발그림2.png" alt="트리순회" style="zoom:50%;" />
+  <img src="https://github.com/hongpower/TIL/blob/master/Images/%ED%8A%B8%EB%A6%AC%EC%88%9C%ED%9A%8C_%EB%B0%9C%EA%B7%B8%EB%A6%BC2.png" alt="트리의 순회" style="zoom:50%;" />
 
 1. 전위 순회(pre-order traverse): 루트 먼저, 왼쪽, 오른쪽
 
@@ -142,7 +142,7 @@ print(queue)
 - 0이 아닌 마지막 비트 찾는법: K & -K (여기서 &는 비트연산)
   -  만약 이 연산 수행했을 때 0이 나오면 0밖에 없다, 1이면 첫번째 자리, 2이면 둘째자리, 4이면 셋째자리, 8이면 넷째자리
 
-![BIT_2진법계산](Images/BIT_2진법계산.png)
+<img src="https://github.com/hongpower/TIL/blob/master/Images/BIT_2%EC%A7%84%EB%B2%95%EA%B3%84%EC%82%B0.png" alt="비트" style="zoom:50%;" />
 
 - 데이터 변경:
 
