@@ -11,7 +11,7 @@
 
 - pre 태그 : preformatted text로 박스 요소이다.
 
-![image-20220121211220474](C:\Users\jisuh\Desktop\데이터엔지니어링\Github\TIL\Web\JS\Images\image-20220121211220474.png)
+<img src="https://user-images.githubusercontent.com/96896873/150629098-f0219099-ed10-4a07-a79c-ec319a7ba148.png"/>
 
 - 왼쪽에도 공간이 있다.
 - button 태그 : `<button onclick="함수()">내용</button>`
@@ -201,6 +201,3 @@ function HelloTest(){
 // 소개하기 버튼 클릭시 HelloTest() 호출
     <button onclick="EatSth()">배고플 땐 밥먹기</button>
 ```
-
-
-
