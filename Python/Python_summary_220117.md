@@ -430,3 +430,6 @@ def practice(**kwargs):
 		print(item)
 ```
 
+- Exit VS Break:
+  - Break는 해당 반복문만 빠져나온다
+  - Exit는 해당 반복문 뿐만 아니라 그냥 그 함수 자체를 빠져나오기 때문에 뒤에 함수가 있어도 절대 실행 하지 않는다
