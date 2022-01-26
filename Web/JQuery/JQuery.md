@@ -1,0 +1,215 @@
+# JQuery
+
+- 파이썬의 모듈 = 제이쿼리에서의 라이브러리 ; 이미 만들어져 있는 기능들을 묶어서 유저들에게 제공
+- 가져다가 쓰기만 할거면 compressed버전 사용이 좋음
+
+
+
+## JQuery 기본
+
+#### JQuery 불러오기:
+
+- 웹사이트에서 주소 복사해서 src에 붙여넣기 : `<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>`
+
+- 주소 저장한 파일 경로 src에 붙여넣기 : `<script src="resources/js/jquery-3.6.0.min.js"></script> ` 
+
+
+
+#### 유의사항 :
+
+- script사이에 코드 넣으면 작동 X
+- 코드 작성할 script태그는 한번더 만들어줘야함
+
+
+
+#### JQuery 작성방법 :
+
+- jQuery(매개변수들)  => $로 표시
+
+- $("img") => 이런식으로 달러 표시 안에 CSS의 selector 표현식 작성
+- jquery에서는 객체 {} 이걸로 생성. new말고
+
+
+
+#### JQuery 장점 : 
+
+- js에서는 일일이 getElements or queryselector 등 문장을 길게 입력해서 html을 가져와야 하지만, CSS 선택자 + Jquery 선택자로 간결하게 html 조작 가능
+
+
+
+#### 로드되면 시행되는 함수 작성방법:
+
+- JS : onload=function(){}
+- JQ: 
+  - $(function(){})
+  - $(document).ready(function(){})
+- 그래서 event함수는 대부분 onload function안에 작성, 나머지 function은 별개의 위치에 생성
+
+- html에서 정의한 함수는 그냥 기존에 배운거처럼 javascript 작성방식으로 하면됌
+
+```javascript
+$(function(){
+	$("img").click(function(){
+        $(this).hide()
+    })
+})
+```
+
+
+
+#####  JavaScript VS jQuery 
+
+| JavaScript       | JQuery              |
+| ---------------- | ------------------- |
+| onclick=""       | click(function(){}) |
+| value()          | val()               |
+| innerHTML()      | HTML()              |
+| onsubmit=""      | submit              |
+| addEventListener | on()                |
+
+
+
+## jQuery 메소드 모음
+
+> jQuery 메소드들은 한줄로 연결해서 작성 가능
+
+- $("").show() : hidden 속성이 되어있는 태그를 보여줌
+
+- $("").hide()
+
+- $("").css("속성","값") : css메소드는 css에서 설정하는 기능들을 구현 가능 
+
+  - $("").css("color", "red")
+
+  - $("").css("size", "20px solid")
+
+  - 여러개일 때는 :
+    - $("").css(__{__ "color" : "red", "size" : "20px solid"__}__)
+    - $("")css("color", "red").css("size", "20px solid")
+  
+- $("").last() : 앞에 요소가 여러개일 때 마지막을 찾음
+
+- $("").after(content) : 해당 요소 바로 다음에 (같은 형제요소로) content추가
+
+  - $("img").after("\<img src='resources/imgs/img01.png'>")
+  
+- $("").toggle() : 보였다 안보였다 설정. 처음 클릭하면 숨겨지고 두번째 클릭하면 다시 보여진다
+
+- $("").val() : 값 가져오기, __문자열로 가져온다__
+
+- $("").HTML("텍스트") : 원하는 텍스트 태그 사이에 삽입
+
+- $("").change() : 이벤트가 발생할 때마다 뒤에 함수 실행
+  - ```javascript
+    $("select").change(function(){ // select가 변화할 때 마다 뒤 함수 실행
+        var option = $("select > option:selected")
+        alert(option.val())
+        alert($("select > option").index(option)) // 여기서 앞에 option은 option태그, 뒤 option은 변수 option 칭하므로 다름.
+    })
+  
+- $("").index(element) : 해당 element가 선택자에서 어느 위치에 해당되는지 반환 
+
+- $("").submit() : submit라는 event 발생 때 마다 뒤에 함수 실행
+
+- $("").empty() : childnode 모두 삭제
+
+- $("").each() : each의 첫 argument는 인덱스를 돌려준다
+
+  - ```javascript
+    $("input[type=checkbox]:checked").each(function(i){
+    	var chk = $("input[type=checkbox]:checked").eq(i)
+        var book = chk.next().text()
+    })
+    // 익명함수 function의 매개변수 i에 iterable한 요소의 인덱스가 들어간다
+    ```
+
+- $("").next() : 해당 element다음에 나오는 element(after랑 헷갈 ㄴㄴ)
+
+  - ```html
+    <script>  
+    var txt = $("p").next().text()
+    </script>
+    
+    <p><b>next 활용<b></P>
+    
+    <!-- 변수 txt는 next 활용임-->
+    ```
+
+- $("").text() : 해당 태그 사이의 text를 불러온다
+
+  - 만약.text(text) 라면 해당 element의 text를 바꾼다
+
+- $("").append(content) : 태그 사이에 content를 추가해준다  (바꾸진 않고 추가)
+
+- $('').end() : 여러 실행문 연결 가능, __대신 $("")를 기준으로 실행!__
+  - `$("pre b").first().css("color","red").end().last().css("color","blue").end().eq(0).toggle()` : pre b__내의__ 첫번째, 마지막, 2번째 요소에 적용.
+  
+  
+
+#### element 지정
+
+- .eq(n) : n 인덱스 위치의 것 
+  - :eq(n) 이렇게도 작성 가능!
+- .slice(n,m) : n이상 m이하 위치
+- .first() : 첫번째 
+- .last() : 마지막
+- .find("선택자") : 선택자의 자손들 중에 해당 element를 탐색. 즉 자식, 손자 다 찾기 가능하다
+- .children("선택자") : 자식들 중 탐색
+- .parent() : 부모
+- .parents("selector") : 선택한 element의 상위 element들 중 탐색(부모, 조상 등 상위는 다 가능)
+- .next("selector") : 다음 요소 탐색
+- .add("selector") : 해당 selector를 추가로 __선택__ (추가 아님)
+  - `$("p:eq(0)").add("div").css("color","red)` : 0번째 p와 더불어서 div까지 색깔 빨간색으로 변경
+
+- .prop("selector") : 속성
+
+  - `if ($(this).prop("tagName")=="SPAN"){}` : nodename이나 tagname은 __대문자__로 가져온다
+
+  - :ballot_box_with_check: Attr(HTML) VS Prop(자바스크립트)
+    - Attr: attr을 활용해서 체크박스를 체크로 바꾸면 html 문서 자체의 속성으로 지정되기 때문에 나중에 체크를 해제해도 변경이 되지 않음
+    - Prop: js가 속성을 변경하는 것이기 때문에 html 문서 자체에 속성이 박혀버리지 않고 변경이 가능해서 property를 왠만하면 사용하자
+
+- .is("selector") : true, false값으로 반환
+
+- .show() 
+
+- .hide()
+
+  - .css("display", "none") : 위에 show와 hide가 이 설정을 바꾸고 다시 변경할 수 있다
+
+  
+
+## CSS 선택자 정리
+
+- 태그 이름으로 선택 : $("태그이름")
+- 아이디로 선택 : $("#아이디명")
+- 클래스로 선택 : $(".클래스이름")
+- 자손 선택 : $("부모 원하는자손태그이름") ; 자식, 손자 등 부모 태그 내에 모든 해당 태그는 다 불러옴
+- 자식만 선택 : $("부모 > 원하는자식태그이름") ; 자식 태그만 불러옴
+- n번째 자식 선택 : $("부모:nth-child()")
+  - 홀수 선택 : $("부모:nth-child(odd)")
+  - 짝수 선택 : $("부모:nth-child(even)")
+  - 하나만 선택 : $("부모:nth-child(n)")
+- 첫번째 자식 선택 : $("부모:first-child")
+- 마지막 자식 선택 : $("부모:last-child")
+- event를 호출한 엘리먼트 선택 : $(this)
+- 특정 조건을 준 태그 선택 : $("태그[조건]")
+  - $("input[type=radio]:checked") : input중 타입이 radio고 checked가 된 element
+
+- 모두 선택 : $("*")
+
+
+
+## jQuery Selector 정리
+
+참고 : https://api.jquery.com/category/selectors/
+
+- :button
+- :checkbox
+- :checked
+- :radio
+
+
+
+​                            
+
