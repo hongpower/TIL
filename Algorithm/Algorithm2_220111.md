@@ -327,6 +327,28 @@ peek()
 
 - rear가 SIZE-1과 같다면 큐가 꽉 차있다는 뜻이다 ->isQueueFull()
 
+  - BUT, 여기서 만약 앞쪽이 비어있고 뒤에가 꽉찼다면? 그래서 추가로 isQueueFull()에 코드 작성이 필요.
+
+  ```python
+  def isQueueFull():
+  	# queue가 full이 아닐 때 먼저 정의:
+  	if rear != SIZE-1:
+          return False
+      # queue가 확실히 full일 때를 정의 : rear가 마지막 위치에 있는 동시에 앞에도 자리가 없을 때
+      elif (rear == SIZE-1) & (front == -1):
+          return True
+      # queue가 empty지만 rear가 마지막 위치에 있어서 자료를 추가 못하는 것을 방지하기 위해 앞으로 땡기기
+      else:
+          for i in range(front + 1,SIZE):
+              queue[i-1] = queue[i] # 맨 앞 데이터부터 끝까지 한칸 앞으로 땡기기
+              queue[i] = None
+          front -= 1 # front 수정
+          rear -= 1 # rear 수정
+          return False        
+  ```
+
+  
+
 - __front와 rear의 숫자가 같으면 큐가 비어있다__는 뜻이다 -> isQueueEmpty()
 
 - peek()는 그 다음으로 삭제될 친구를 조회하게 해준다
@@ -336,9 +358,16 @@ peek()
 ```python
 ## 함수
 def isQueueFull():
-    if n-1 == rear:
+    if (n-1 == rear) & (front == -1):
         return True
+    elif rear != SIZE-1:
+        return False
     else:
+        for i in range(front+1,SIZE):
+            queue[i-1] = queue[i]
+            queue[i] = None
+        front -= 1
+        rear -= 1
         return False
 
 def enQueue(cosmetic):
