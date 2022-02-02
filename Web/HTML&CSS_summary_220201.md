@@ -81,6 +81,17 @@
 #### cascading :
 
 - 여러 개의 source들을 cascade down 하는 것. 즉 CSS는 hierachy가 있고 높은 위치에 잇는 style이 먼저 적용이 되고 그 위에 다음 위치의 소스가 overwrite되는 것.
-
 - 여러 stylesheet를 한 html에 적용한다면 : 
   - 첫번 째 stylesheet를 `<link>`를 활용해서 작성하고 그 밑에 또 stylesheet를 `<link>`를 활용해서 작성하면 덮어씌우기로 작성 가능 
+
+
+
+## 기타 :
+
+- 글짜색은 상속이 불가능 하니 정확히 지정해주기
+- margin: auto => 중앙 정렬. 브라우저가 margin을 계산하며 여백이 균등하게 배분. auto는 width를 지정해 주어야 한다
+- HTML은 대소문자 구분 x
+- 단축키:
+  - CTRL + 1 : 첫번째 창 이동
+  - Alt + Shift + 아래방향키 : 복사가능
+  - Ctrl + Alt : 위 아래 다중커서 가능
