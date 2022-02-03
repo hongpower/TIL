@@ -256,6 +256,16 @@ loginForm.addEventListener("submit", onLoginSubmit)
 > 이미 브라우저에 존재하는 storage로 브라우저 저장소임
 
 - 확인 방법 : 개발자도구 => Application => Storage => Local Storage 
+- local storage는 text만 저장 가능하다. (array등 다른 데이터 타입 불가능)
+  - `JSON.stirngfy` => array든 아무 데이터 타입을 문자열로 바꿔준다 형태 그대로
+    - `let toDos = []`
+    - `localStorage.setItem("todos", JSON.stringify(toDos))` 
+    - 지금 toDos는 빈 array고 중간에 보면 toDos에 item들을 끼워넣는 코드들이 적혀있는데, localStorage는 array형태로 저장을 못하니, `["지수","한나","병규"]` 이런식으로 array형 그대로 저장한다
+
+  - `JSON.parse` => 반대로 문자열인 데이터를 alive array that javascript understands로 바꿔줌
+    - `const savedToDos = localStorage.getItem("todos")`
+    - `const parsedToDos = JSON.parse(savedToDos)`
+    - local저장소에 들어있는 형태만 array고 문자열인 savedToDos를 다시 원상복귀(array로)
 
 - setItem("key","value")
 - getItem("key")
@@ -433,4 +443,77 @@ bgImage.src = `img/${chosenImage}`
 
 document.body.appendChild(bgImage)
 ```
+
+
+
+### Arrow Function
+
+```javascript
+//1번째 방법
+function sayHello(item){ //여기서 item은 이전처럼 item이라는 정보를 주는데, 요소명이 출력됨
+    console.log("hello" + item)
+}
+
+const savedToDos = localStorage.getItem(TODOS_KEY)
+if (savedToDos !== null){
+    const parsedToDos = JSON.parse(savedToDos)
+    parsedToDos.forEach(sayHello) // parsedToDos의 각 요소를 불러오면서 sayHello실행
+} 
+```
+
+```javascript
+//2번째 방법 (arrow function)
+
+const savedToDos = localStorage.getItem(TODOS_KEY)
+if (savedToDos !== null){
+    const parsedToDos = JSON.parse(savedToDos)
+    parsedToDos.forEach((item) => console.log("item"))
+} 
+```
+
+
+
+## Todos
+
+### Filter
+
+- filter도 for each처럼 한 요소씩 조건에 맞는지 해당하여 true면 반환, false면 삭제한다
+- 즉 내가 지우고 싶은 array내의 요소는 false가, 유지하고 싶은 기존 값은 true가 반환되도록 코드를 짠다
+- filter function은 참고로 새로운 array를 제공한다. 즉 원본값은 수정하지 않는다
+  - `function sexyFilter(item){return item !== 3}` => array가 들어왔을 때 각 item중에 3이 아닌 item만 return 하라. 이 부분은 필터링하는 함수를 정의한 부분
+  - `toDos = toDos.filter((toDo) => toDo.id !== parseInt(li, id))` => toDos의 요소들 중 li와 id를 숫자로 바꾼 값이 toDo의 id와 같지 않은 item만 남겨두고 toDos라는 리스트에 저장해라
+
+
+
+## Weather
+
+https://openweathermap.org/ => API => Current Weather Data => 
+
+API Call
+
+- `api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=[{API key}](https://home.openweathermap.org/api_keys)` => 여기서 API key는 각 사용자의 고유한 key로 화면 오른쪽 상단에 My API Key에서 삽입
+- 주소맨 끝에 `&units=metric` 해서 metric 단위로 바꿔서 정보 얻을 수 있음
+
+```javascript
+fetch(주소)
+    .then((response) => response.json())
+    .then((data) => {
+    const weather = document.querySelector() 
+    const city = document.querySelector() 
+    city.innerText = data.name 
+    weather.innerText = data.weather[0].main
+})
+```
+
+
+
+- ` => JS에서 직접 해당 Url을 부르고, url이 정상적으로 불렸을 때 뒤에 함수들 실행 (then을 이용한 이유)
+
+
+
+- `navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError)` => 현재 나의 위치에 관한 정보들을 얻을 수 있음. a는 정상적으로 위치 파악이 가능할 때 수행되는 함수, b는 에러(fail)뜰 때
+- 마찬가지로 정상적으로 실행된다면 나의 위치에 관한 정보들을 하나의 argument로 제공
+  - `function onGeoOk(position){}`
+  - `position.coords.latitude` => 위도
+  - `position.coords.longtitude` => 경도
 
