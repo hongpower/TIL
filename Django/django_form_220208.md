@@ -231,7 +231,7 @@ def logout(request):
 
 
 
-## Django 제
+## Django auth.forms에서 생성
 
 - app 추가하고 settings.py에서
   - `'DIRS': [BASE_DIR/'templates']` 작성
@@ -262,9 +262,14 @@ class MyMemberForm(UserCreationForm):
 
 - django에 기본적으로 내장되어있는 UserCreationForm을 사용해서 MyMemberForm이라는 객체를 생성한 것임 
   - UserCreationForm클래스를 상속해서 만들지 않고 그대로 사용해도 되지만 부가 속성으 ㄹ추가할 때는 이렇게 상속해서 만든다
+  
 - 만약 username, password1, password2 이외에도 추가로 속성 추가하고 싶다면 안에 작성해줄 것.
+
 - class Meta:
-  - 아마 이렇게 상속받은 경우, ???
+  - 직접 필드를 정의하는 일반 폼과 달리 지금 이 경우는 model form을 사용하고 있는데, 이런 경우는 model과 필드를 지정해야한다. 지정하면 모델폼이 자동으로 폼 필드를 생성한다
+  - 즉 mymemberform은 그냥 기존에 있는 username, password1, password2에다가 email, first_name, last_name 추가한 정도에 그치는 거고, django가 생성하기를 바란다면 class Meta작성
+  
+  
 
 ### Reigster
 
