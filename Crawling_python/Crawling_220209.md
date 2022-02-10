@@ -100,7 +100,7 @@ soup로 원하는 데이터 긁어온 예시:
 
 - 파이썬 내에서 json형태를 만들고 난 후에
 
-- `변수이름 = json.dumps(json형태의변수)` => json객체 생성
+- `변수이름 = json.dumps(json형태의변수)` => json객체를 text로 변경
 
   - `res_json = jsondumps(res, ensure_ascii=False)`
 
