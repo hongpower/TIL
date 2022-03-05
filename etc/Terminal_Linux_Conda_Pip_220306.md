@@ -22,7 +22,7 @@
 
 - CLI
 
-- cmd의 advanced version임.
+- cmd의 advanced version임
   -  함수 생성, 계산 등등 여러 확장 기능 포함
 - mac에도 지원함
 
