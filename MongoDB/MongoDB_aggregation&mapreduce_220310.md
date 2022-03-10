@@ -97,3 +97,12 @@ db.myRes.find();
 
 
 
+## 기타 :
+
+- 정규 표현식 작성시 ''없어야함!
+  - `db.inventory.find({'item' : {'$regex' : /^p/}})` -> p로시작하는
+  - `db.inventory.find({'item' : /r$/})` -> regex없이 작성 가능. r로 끝나는
+- in
+  - `db.inventory.find({'qty' : {'$in': [25, 45]}})`
+- nin
+  - `db.inventory.find({'size.w' : {'$nin':[11, 21]}})`
