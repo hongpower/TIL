@@ -11,7 +11,7 @@
 
 - scikit-learn으로 파이썬의 머신러닝 라이브러리
 
-### Machine Learing steps
+### Machine Learning steps
 
 - __데이터 준비 -> 데이터 분할 -> (학습)준비 -> 학습 ->예측 및 평가__
 
