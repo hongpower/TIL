@@ -43,7 +43,7 @@ export YARN_NODEMANAGER_USER=jisu
 
 - `ls`
 
-![image-20220314093450540](Images/image-20220314093450540.png)
+![image](https://user-images.githubusercontent.com/96896873/158278288-2b792efd-eeee-4ccb-82fb-53a796fe21bd.png)
 
 
 
@@ -66,7 +66,7 @@ export HADOOP_PID_DIR=/tmp  # 주석풀고 hadoop_pir_dir 위치 새로 잡아�
   - 만약 java가 어딨는지 확인이 필요하다면 :
     - `which javac` : java binary directory경로 보여줌
       - which javac로 나온 경로중 bin/javac이전까지 자르면 그게 openJDK가 설치된 경로임
-      - ![image-20220314112857390](Images/image-20220314112857390.png)
+      - ![image](https://user-images.githubusercontent.com/96896873/158278306-daf29d3a-74d8-411a-8bb3-a4c7cf66ddc9.png)
 
 
 
@@ -84,12 +84,12 @@ export HADOOP_PID_DIR=/tmp  # 주석풀고 hadoop_pir_dir 위치 새로 잡아�
 </configuration>
 ```
 
-![image-20220314094241789](Images/image-20220314094241789.png)
+![image](https://user-images.githubusercontent.com/96896873/158278318-bb7cac51-6b0b-4b53-a390-503945ca7e8e.png)
 
 - 참고 : https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml
   - 위 사이트에서 fs.defaultFS 의 value가 file:///형태로 작성하라 되어있음
 
-![image-20220314103723744](Images/image-20220314103723744.png)
+![image](https://user-images.githubusercontent.com/96896873/158278332-707a9f60-aa25-4919-8b68-d554e7f41444.png)
 
 
 
@@ -166,11 +166,11 @@ hadoop configuration 초기 설정 끝!
 
 
 
-![image-20220314104210339](Images/image-20220314104210339.png)
+![image](https://user-images.githubusercontent.com/96896873/158278347-86a16bdf-577a-4831-a7f2-d2540db517e6.png)
 
 `jps` : 내 머신 위의 Java process 다 list함.to check out all the hadoop deamon like DATnode, node manager that are currently running on machine.
 
 - `hdfs dfsadmin -report` : filesystem info와 statistics를 report 해줌.
-- ![image-20220314123038597](Images/image-20220314123038597.png)
+- ![image](https://user-images.githubusercontent.com/96896873/158278361-13de8a54-3835-48e3-a15f-05a0a3573725.png)
 - firefox에 `localhost:9870` url에 입력 => HDFS 관련 (start-dfs.sh 이후 가능)
 - firefox에 `localhost:8088` url에 입력 => Yarn 관련 (start-yarn.sh 이후 가능)

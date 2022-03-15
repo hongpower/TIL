@@ -5,16 +5,14 @@
 - hadoop 초기 설정 끝낸 상태에서 작업 이어서 시작! (start-all한 상태)
 - https://spark.apache.org/spark 웹사이트 접속 
 - download 클릭
-- ![image-20220314121738534](C:\Users\jisuh\Desktop\데이터엔지니어링\Github\TIL\Hadoop\Images\image-20220314121738534.png)
+- ![image](https://user-images.githubusercontent.com/96896873/158278610-16a2937e-76d9-4f24-b12a-47c429626ac5.png)
 - 3.1.3버전 선택(zlib노트북 사용 할거라서)
 - pre-built with user-provided apache hadoop 선택 (우린 이미 hadoop설치 해놓았으니)
 - 3번의 spark-3.1.3-bin-without-hadoop.tgz 클릭
-- ![image-20220314121916546](C:\Users\jisuh\Desktop\데이터엔지니어링\Github\TIL\Hadoop\Images\image-20220314121916546.png)
+- ![image](https://user-images.githubusercontent.com/96896873/158278631-089d65d0-c2cc-40be-a63b-969f13731f98.png)
 - 여기서 http 링크 주소 복사
 - `cd` : home으로 이동
 - `wget https://dlcdn.apache.org/spark/spark-3.1.3/spark-3.1.3-bin-without-hadoop.tgz `  : 방금 link 주소 복사한거 wget + 붙여넣기
-
-
 
 - 이전에 실행했던 demons 종료시키기 :
 
@@ -57,7 +55,7 @@
 
 - `ls`
 
-- ![image-20220314130823951](C:\Users\jisuh\Desktop\데이터엔지니어링\Github\TIL\Hadoop\Images\image-20220314130823951.png)
+- ![image](https://user-images.githubusercontent.com/96896873/158278654-18f1cb50-3226-4519-8b4c-3ee9c7890430.png)
 
   => spark는 xml대신 template주면서 기본으로, 우리가 알아서 고치라고 되어있음
 
@@ -113,4 +111,3 @@ spark 설치 완료!
 
 ---
 
-## 
