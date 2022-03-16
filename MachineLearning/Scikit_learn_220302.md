@@ -64,6 +64,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
 ## 데이터 준비
+# header는 default가 0이라서 지정안해줘도 괜찮다.
+# names는 기존에 있는 컬럼명을 순서대로 바꾸고 싶을 때 지정한다. 원래 column명 그대로 쓸거면 지정안해줘도 지장 X
 df = pd.read_csv('soldiers.csv', encoding='euc-kr', names=['순번', 'date', '가슴둘레', '소매길이', 'height', '허리둘레', '샅높이', '머리둘레', '발길이', 'weight'], header=0, low_memory=False)
 # 데이터 전처리 :
 df = df[['date', 'height', 'weight']]
@@ -82,6 +84,8 @@ X = df['weight']
 y = df['height']
 
 ## 데이터 분할
+# random_state : 랜덤 시드 결정
+# test_size : 테스트용 x, y 비율 지정
 train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.3, random_state=1)
 # 2차원으로 만들기 (y말고 X만 하면 됌)
 train_X = train_X.values.reshape(-1,1)
@@ -117,11 +121,11 @@ df.dropna(inplace=True)
 
 # grade = 초등학교: 0/, 중학교 : 6/ 고등학교 : 9 + 학년
 # df['grade'] = df['학교명']
-df['grade'] = list(map(lambda x: x if x[-4:] == '초등학교' else 6 if x[-3:] == '중학교' else 9, df[['학교명']])) + df['학년']
+df['grade'] = list(map(lambda x: 0 if x[-4:] == '초등학교' else 6 if x[-3:] == '중학교' else 9, df[['학교명']])) + df['학년']
 # print(df[6000:7000])
 
 # !! 학교명과 학년은 이제 필요없으니 삭제하기 : axis는 0이 디폴트(행)
-df.drop(['학교명','학년'], axis='colunms', inplace=True)
+df.drop(['학교명','학년'], axis='columns', inplace=True)
 
 # column명 영어로 바꾸기
 df.columns = ['gender', 'height', 'weight','grade']
@@ -298,7 +302,7 @@ df['grade'] = list(map(lambda x: x if x[-4:] == '초등학교' else 6 if x[-3:] 
 # print(df[6000:7000])
 
 # !! 학교명과 학년은 이제 필요없으니 삭제하기 : axis는 0이 디폴트(행)
-df.drop(['학교명','학년'], axis='colunms', inplace=True)
+df.drop(['학교명','학년'], axis='columns', inplace=True)
 
 # column명 영어로 바꾸기
 df.columns = ['gender', 'height', 'weight','grade']
@@ -402,14 +406,19 @@ print('acc : ', logistic.score(test_X, test_y))
 ```
 
 - `np.ravel` : 다차원 데이터 1차원으로 변경.
-  - y는 1차원 데이터를 활용하므로 np.ravel 활용
+  - y는 1차원 데이터를 활용하므로 np.ravel 활용. (x만 2차원쓰고 y만 1차원 썼었으니)
+  - 원래 y의 모습 : [[1], [0], ...] => [1,0 ...]
 
 #### iris 데이터 :
 
 - sklearn.datasets에서 가져온 iris 데이터의
-  - `feature_names` 는 열과 유사
-  - `target` 은 classfication target을 모든 데이터에 한 모습
-  - `target_names`는 target class의 이름들
+  - `feature_names` 는 컬럼명과 유사 : ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
+  - `target` 은 classfication target을 모든 데이터에 한 모습 (모양과 길이를 통해서 꽃의 품종을 0 / 1 / 2로 표현한 모습): [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2
+ 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+ 2 2]
+  - `target_names`는 target class의 이름들 : ['setosa' 'versicolor' 'virginica']
 
 ```python
 from sklearn.datasets import load_iris
@@ -459,12 +468,14 @@ print(f'acc : {logistic.score(test_X, test_y)}')
 ```python
 df = pd.DataFrame(iris.data)
 df.columns = ['꽃받침 길이', '꽃받침 넓이', '꽃잎 길이', '꽃잎 넓이']
-# 여기 케이스에서는 -1 없이도 같은 모습
+# 여기 케이스에서는 reshape(-1) 불필요한듯. 같은 결과나옴
 df['category'] = pd.Dataframe(iris.target_names[iris.target].reshape(-1))
 
 grps = df.groupsby('category')
 fig, ax = plt.subplots()
 for name, group in groups:
+    #name : group명
+    #group : group별로 나눠진 데이터프레임
     ax.scatter(group.sepal_length, group.sepal_width, label=name)
 plt.show()
 ```
