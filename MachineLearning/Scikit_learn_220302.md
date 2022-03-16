@@ -72,7 +72,7 @@ df.dropna(inplace=True) # dropna해도 None이 아니라 ''라면 dropna가 안�
 
 # 년도만 출력
 df['date'] = list(map(lambda x: int(str(x[:4])) if len(str)x > 4 else x, df['date']))
-# 키는 소수점 첫번 째 자리까지
+# 키에 공백이후 cm가 포함된 경우가 있어서 cm잘라내기
 df['height'] = list(map(lambda x: float(str(x).split(' ')[0]), df['height']))
 # 몸무게는 float로 변환 (''은 None으로 변환)
 df['weight'] = list(map(lambda x: float(x) if x else None, df['weight']))
