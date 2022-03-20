@@ -14,7 +14,7 @@
 
 - search interpreters에 spark 검색 
 
-![image-20220317105416262](Images/image-20220317105416262.png)
+![image](https://user-images.githubusercontent.com/96896873/159167135-923c483e-3f99-4f26-b442-d76a7d264ec8.png)
 
 -> %spark : 스칼라, %ipyspark : 주피터, %r : r형태, %kotlin : kotlin으로 만든 spark도 동작하네? 이런거 확인 가능
 
@@ -46,7 +46,7 @@
 - save 누르기
   
 
-![image-20220317105631694](Images/image-20220317105631694.png)
+![image](https://user-images.githubusercontent.com/96896873/159167142-f5802752-d931-475d-9277-c15c084c6b47.png)
 
 
 
@@ -55,7 +55,7 @@
 - 상단에 Notebook눌러서
 - Create new note
 
-![image-20220317105748397](Images/image-20220317105748397.png)
+![image](https://user-images.githubusercontent.com/96896873/159167147-f649eb01-0c17-49f4-bdac-c9f74fb6e516.png)
 
 - create 해주기
 
