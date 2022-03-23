@@ -38,6 +38,7 @@
 
   - [Downloads for Amazon Corretto 11 - Amazon Corretto](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html) 접속
   - `wget https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz` -> 터미널에 입력
+    - 만약 m1에 linux깔면 arm이기 때문에 linux/Aarch64다운받아야함!
   - wget : 파일을 요청해서 응답받아오기
   - `tar xvzf amazon-corretto-11-x64-linux-jdk.tar.gz` : 압축파일 해제
   - amazon까지만 타이핑하고 tab하면 나머지 자동 완성!
@@ -110,7 +111,7 @@
   
   # python 3.7 버전 다운로드
   sudo apt update
-  sudo apt install python 3.7 -y
+  sudo apt install python3.7 -y
   ```
 
   - `sudo vim ~/.bahsrc` : 

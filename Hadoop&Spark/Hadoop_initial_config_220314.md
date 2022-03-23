@@ -58,8 +58,9 @@ export HADOOP_HOME=/home/jisu/hadoop # 주석풀고 hadoop_home 잡아주기
 export hadoop_conf_dir# 얘는 주석만 풀기 이미 경로etc/hadoop으로 잘 잡혀있음
 
 #198번 줄부터 :
-export HADOOP_PID_DIR=/tmp  # 주석풀고 hadoop_pir_dir 위치 새로 잡아주기
-# PID파일 어디다 저장할건지인데, 임시저장소에 저장하면 하둡 저장했던 파일들이 다 날라갈테니 바꿀것임 => $HADOOP_HOME/pids (이파일 만들어서 여기로지정해줘요)
+# export HADOOP_PID_DIR=/tmp 이거 변경 to
+export HADDOP_PID_DIR=$HADOOP_HOME/pids
+# PID파일 어디다 저장할건지인데, 임시저장소에 저장하면 하둡 저장했던 파일들이 다 날라갈테니 바꿀것임
 ```
 
 - `JAVA_HOME` : OpenJDK 설치가 된 경로 (softlink가 있는 곳)로 지정

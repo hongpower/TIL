@@ -33,7 +33,7 @@
 - `sudo vim mysqld.cnf`
 
 ```python
-# 약 60번째 줄 변경 :
+# 약 30번째 줄 변경 :
 bind-address : 0.0.0.0
 mysqlx-bind-address : 0.0.0.0 
 ```
