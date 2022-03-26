@@ -161,7 +161,7 @@
 
 #### DML
 
-- UNION
+- UNION (행을 늘림. 즉 같은 컬럼끼리 합쳐서 행들을 합침)
   - UNION : 중복 제거 후 병합
     - `SELECT deptno FROM dept UNION SELECT deptno FROM emp;`
   - UNION ALL : 중복 허용 병합
@@ -186,6 +186,7 @@
   - 쌍따옴표와 따옴표 주의할 것!
 - `+`
   - `SELECT sal + comm FROM emp;`
+  - 숫자끼리 더하기
 
 
 
@@ -236,5 +237,4 @@
 - `sysdate` : 오늘 날짜 불러오기
   - 컴퓨터 시간에 따라 형태가 다르게 나옴
   - `select sysdate from dual;`
-
 
