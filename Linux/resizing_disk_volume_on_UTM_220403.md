@@ -42,8 +42,6 @@
 - Filesystem : 리눅스에서 사용하는 모든 파일시스템 사용가능한 곳
 
 
-
-- 현재까지는 pv와 lv만 늘린 상태
 - 현재 내 상태 확인 :
   - df -h
   - sudo vg(volume group)display
@@ -64,3 +62,17 @@
 ### 7) filesystem 사이즈 늘리기
 
 - `resize2fs /dev/mapper/ubuntu --vg-ubuntu--lv`
+
+
+
+## 번외 :
+
+- 만약 위 과정이 귀찮다면, 임시방편으로
+~~~
+    <property>
+            <name>yarn.nodemanager.disk-health-checker.max-disk.utilization-per-disk-percentage</name>
+            <value>98.5</value>
+    </property>
+~~~
+
+- 노드 매니저가 건강을 위해서 디폴트로 90%까지만 사용가능하게 돼있는데 늘리기 가능!
